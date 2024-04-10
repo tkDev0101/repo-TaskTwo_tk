@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="spinner_items">
-        <item> Category 1</item>
-        <item> Category 2</item>
-        <item> Category 3</item>
-        <item> Category 4</item>
+    <string-array name="tk_spinner_items">
+        <item> tk 1....</item>
+        <item> tk 2....</item>
+        <item> tk 3....</item>
+        <item> tk 4....Da Baddies</item>
 
     </string-array>
 

@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">TaskTwo_tk</string>
+    <string name="save_entry">SAVE ENTRY</string>
+    <string name="end_time">END TIME</string>
+    <string name="end_date">END DATE</string>
+    <string name="start_time">START TIME</string>
+    <string name="start_date">START DATE</string>
+    <string name="description">Description</string>
+    <string name="igama_lakho">iGama Lakho</string>
+    <string name="tk_s_timesheet_entry">TK\'s Timesheet Entry</string>
 </resources>
