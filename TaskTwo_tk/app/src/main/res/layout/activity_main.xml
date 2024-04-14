@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:background="@color/white"
     tools:context=".MainActivity">
+
 
 
     <TextView
@@ -13,6 +16,12 @@
         android:layout_height="wrap_content"
         android:text="@string/tk_s_timesheet_entry"
         android:textSize="35sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:typeface="serif"
+        android:textColor="#203354"
+        android:fontFamily="tahoma"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,6 +84,13 @@
         android:layout_height="48dp"
         android:layout_marginStart="20dp"
         android:text="@string/start_date"
+
+        android:backgroundTint="@color/black"
+        android:fontFamily="sans-serif"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner"
@@ -85,17 +101,23 @@
         android:id="@+id/btnStartTime"
         android:layout_width="160dp"
         android:layout_height="48dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="52dp"
+        android:backgroundTint="@color/black"
+
+        android:fontFamily="sans-serif"
         android:text="@string/start_time"
-        tools:ignore="VisualLintBounds,TextSizeCheck"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.657"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/btnStartDate"
         app:layout_constraintTop_toBottomOf="@+id/spinner"
-        app:layout_constraintVertical_bias="0.022"/>
+        app:layout_constraintVertical_bias="0.022"
+        tools:ignore="VisualLintBounds,TextSizeCheck" />
 
     <Button
         android:id="@+id/btnEndDate"
@@ -104,6 +126,12 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
         android:text="@string/end_date"
+
+        android:backgroundTint="@color/black"
+        android:fontFamily="sans-serif"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnStartDate"
@@ -114,9 +142,15 @@
         android:id="@+id/btnEndTime"
         android:layout_width="160dp"
         android:layout_height="48dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="15dp"
         android:text="@string/end_time"
+
+        android:backgroundTint="@color/black"
+        android:fontFamily="sans-serif"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.345"
         app:layout_constraintStart_toEndOf="@+id/btnEndDate"
@@ -130,6 +164,12 @@
         android:layout_marginStart="20dp"
         android:layout_marginBottom="236dp"
         android:text="@string/save_entry"
+
+        android:backgroundTint="@color/black"
+        android:fontFamily="sans-serif"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.445"
