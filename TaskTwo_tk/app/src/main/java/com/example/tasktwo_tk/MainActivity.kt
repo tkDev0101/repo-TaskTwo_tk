@@ -49,6 +49,7 @@ class MainActivity : AppCompatActivity() {
         endDateBtn = findViewById(R.id.btnEndDate)
         endTimeBtn = findViewById(R.id.btnEndTime)
         capButton = findViewById(R.id.btnCapture)
+
         database = FirebaseDatabase.getInstance().reference
 
         //spinner Typecasting?
