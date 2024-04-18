@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="tk_spinner_items">
+    <string-array name="tk_spinner_items_Array">
         <item> tk 1....</item>
         <item> tk 2....</item>
         <item> tk 3....</item>

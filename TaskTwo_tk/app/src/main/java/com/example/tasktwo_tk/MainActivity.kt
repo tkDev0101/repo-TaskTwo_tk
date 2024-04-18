@@ -18,9 +18,9 @@ import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
 
-    //VRIABLES
+    //VARIABLES
     lateinit var spinner: Spinner
-    lateinit var capButton: Button
+    lateinit var captureImgButton: Button
     lateinit var edName: EditText
     lateinit var edDesc: EditText
     lateinit var startDateBtn: Button
@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity() {
     var endDate: Date?=null
     var endTime: Date?=null
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -48,25 +47,29 @@ class MainActivity : AppCompatActivity() {
         startTimeBtn = findViewById(R.id.btnStartTime)
         endDateBtn = findViewById(R.id.btnEndDate)
         endTimeBtn = findViewById(R.id.btnEndTime)
-        capButton = findViewById(R.id.btnCapture)
+        captureImgButton = findViewById(R.id.btnCapture)
 
         database = FirebaseDatabase.getInstance().reference
 
-        //spinner Typecasting?
+
+
+        //connects the spinner with its adapter
         val spinnerAdapter = ArrayAdapter.createFromResource(
-            this, R.array.tk_spinner_items,
-            android.R.layout.simple_spinner_dropdown_item )
+                                this, R.array.tk_spinner_items_Array,
+                                android.R.layout.simple_spinner_dropdown_item )
+
+        // -> spinner to display data using the adapter's contents.
         spinner.adapter = spinnerAdapter
 
 
-        //OnClickListener EVENTS ->  btn pull
+        //OnClickListener EVENTS ->  Call BTNS
         startDateBtn.setOnClickListener{showDatePicker((startDatelistener))}
         endDateBtn.setOnClickListener{showDatePicker((endDateListener))}
         startTimeBtn.setOnClickListener{showTimePicker((startTimeListener))}
         endTimeBtn.setOnClickListener{showTimePicker((endTimeListener))}
 
         //Firebase BTN
-        capButton.setOnClickListener{
+        captureImgButton.setOnClickListener{
             val selectedItem = spinner.selectedItem as String
             val taskName = edName.text.toString()
             val taskDesc = edDesc.text.toString()
@@ -75,26 +78,27 @@ class MainActivity : AppCompatActivity() {
 
             if(taskName.isEmpty())
             {
-                edName.error = "Please enter timetable name"
+                edName.error = "Asseblief, Please enter a Task Name Bru "
                 return@setOnClickListener
             }
 
             if(taskDesc.isEmpty())
             {
-                edDesc.error = "Please enter time sheet description"
+                edDesc.error = "Asseblief, Please enter a description my Guy!!!"
                 return@setOnClickListener
             }
 
+            //ELSE -> Call 3.Method -> Save 2 Firebase
             saveToFirebase(selectedItem,taskName, taskDesc)
 
-        }
+        }//end_Firebase_BTN
 
 
 
     }//end_onCreate
 
 
-    //METHOD -> Pick Date
+    //1.METHOD -> Pick Date
     fun showDatePicker(dateSetListener : DatePickerDialog.OnDateSetListener)
     {
         //calendar object --> year / month date
@@ -106,7 +110,7 @@ class MainActivity : AppCompatActivity() {
         datePickerDialog.show()
     }
 
-    //METHOD -> Pick Time
+    //2.METHOD -> Pick Time
     fun showTimePicker (timeSetListener: TimePickerDialog.OnTimeSetListener)
     {
         val calendar = Calendar.getInstance()
@@ -118,7 +122,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    //startDate Btn LISTENER
+    //1.LISTENER -> startDate Btn
 
     //FORMAT --> fb --> date --> date util
     val startDatelistener = DatePickerDialog.OnDateSetListener { _: DatePicker, year:Int, month:Int, day:Int
@@ -133,8 +137,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    //endDate Btn LISTENER
-
+    //2.LISTENER -> endDate Btn
     val endDateListener = DatePickerDialog.OnDateSetListener { _: DatePicker, year:Int, month:Int, day:Int
         ->
         val selectedCalendar = Calendar.getInstance()
@@ -147,8 +150,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    //startTime Btn LISTENER
-
+    //3.LISTENER -> startTime Btn
     //string format start time
     val startTimeListener = TimePickerDialog.OnTimeSetListener { _: TimePicker, hourOfDay:Int, minute:Int
         ->
@@ -164,7 +166,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    //endTime LISTENER
+    //4.LISTENER -> endTime BTN
     val endTimeListener = TimePickerDialog.OnTimeSetListener { _: TimePicker, hourOfDay:Int, minute:Int
         ->
         val selectedCalendar = Calendar.getInstance()
@@ -181,16 +183,19 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    //METHOD -> Firebase
-    fun saveToFirebase(item:String, taskName:String, taskDesc:String) {
-        //FORMATS
 
+
+//1. declare variable in model class
+//2. Assign value to variable
+//3. Pass value into database
+
+
+    //3.METHOD -> Save 2 Firebase
+    fun saveToFirebase(item:String, taskName:String, taskDesc:String) {
+
+        //FORMATS
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
-
-        //2. Asign value to varible
-        val taskCat = spinner.selectedItem.toString()
-
 
 
         //fetch the values from the local btns text
@@ -199,7 +204,11 @@ class MainActivity : AppCompatActivity() {
         val endDateString = endDateBtn.text.toString()
         val endTimeString = endTimeBtn.text.toString()
 
-        //parse values for firbase
+        //2. Assign value to variable
+        val taskCat = spinner.selectedItem.toString()
+
+
+        //parse values for firebase
         val startDate = dateFormat.parse(startDateString)
         val startTime = timeFormat.parse(startTimeString)
         val endDate = dateFormat.parse(endDateString)
@@ -210,27 +219,33 @@ class MainActivity : AppCompatActivity() {
         val totalMinutes = totalTimeinMillis / (1000 * 60)
         val totalHours = totalMinutes / 60
         val minutesRemaining = totalMinutes % 60
-        val totalTimeString = String.format(
-            Locale.getDefault(), "%02d:%02d", totalHours, minutesRemaining )
+        val totalTimeString = String.format( Locale.getDefault(), "%02d:%02d", totalHours, minutesRemaining )
 
-        val key = database.child("items").push().key
-        if (key != null) {
-            val task = TaskModel(                                                                                   //3. Pass value into database
-                taskName,taskDesc,startDateString, startTimeString, endDateString, endTimeString, totalTimeString, taskCat )
 
-            database.child("items").child(key).setValue(task)
+        // Creates a new child node && retrieves its unique key
+        val key = database.child("ChildNode-TaskItems").push().key
+        if (key != null)
+        {
+            //i. Creating a TaskModel Object:
+            val task = TaskModel( taskName,taskDesc,startDateString, startTimeString, endDateString,
+                                    endTimeString, totalTimeString, taskCat )
+
+            //ii. Saving the TaskModel Object to Firebase:
+            database.child("ChildNode-TaskItems").child(key).setValue(task)
                 .addOnSuccessListener {
-                    Toast.makeText(this, "Timesheet entry saved to the database", Toast.LENGTH_SHORT ).show()
+                    Toast.makeText(this, "DANKO \nTimesheet entry saved to the database", Toast.LENGTH_SHORT ).show()
                 }
                 .addOnFailureListener { err ->
                     Toast.makeText(this, "ERROR: ${err.message}", Toast.LENGTH_SHORT).show()
                 }
 
-        }
-    }
+        }//end_If
+
+    }//end_saveToFirebase
 }
 
 data class TaskModel(
+
     var taskName: String? = null,
     var taskDesc: String? = null,
     var startDateString: String? = null,
@@ -239,13 +254,7 @@ data class TaskModel(
     var endTimeString: String? = null,
     var totalTimeString: String? = null,
 
-    //1. declare variable in model class
+    //1. declare variable in Model Class
     var taskCat : String? = null
 
-
-)
-
-
-//1. declare variable in model class
-//2. Asign value to varible
-//3. Pass value into database
+    )

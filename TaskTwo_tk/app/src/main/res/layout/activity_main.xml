@@ -71,7 +71,7 @@
         android:id="@+id/spinner"
         android:layout_width="270dp"
         android:layout_height="50dp"
-        android:entries="@array/tk_spinner_items"
+        android:entries="@array/tk_spinner_items_Array"
         tools:ignore="VisualLintBounds"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
