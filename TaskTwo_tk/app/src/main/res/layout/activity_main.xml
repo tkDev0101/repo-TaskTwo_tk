@@ -84,7 +84,7 @@
     <Button
         android:id="@+id/btnStartDate"
         android:layout_width="160dp"
-        android:layout_height="48dp"
+        android:layout_height="45dp"
         android:layout_marginStart="30dp"
         android:text="@string/start_date"
 
@@ -103,7 +103,7 @@
     <Button
         android:id="@+id/btnStartTime"
         android:layout_width="160dp"
-        android:layout_height="48dp"
+        android:layout_height="45dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="52dp"
@@ -125,7 +125,7 @@
     <Button
         android:id="@+id/btnEndDate"
         android:layout_width="160dp"
-        android:layout_height="48dp"
+        android:layout_height="45dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="16dp"
         android:text="@string/end_date"
@@ -144,7 +144,7 @@
     <Button
         android:id="@+id/btnEndTime"
         android:layout_width="160dp"
-        android:layout_height="48dp"
+        android:layout_height="45dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="15dp"
         android:text="@string/end_time"
@@ -163,20 +163,80 @@
     <Button
         android:id="@+id/btnCapture"
         android:layout_width="160dp"
-        android:layout_height="48dp"
+        android:layout_height="45dp"
         android:layout_marginStart="20dp"
-        android:layout_marginBottom="230dp"
-        android:text="@string/save_entry"
-
+        android:layout_marginBottom="248dp"
         android:backgroundTint="@color/white"
+
         android:fontFamily="sans-serif"
+        android:text="@string/save_entry"
+        android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.445"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="220dp"
+        android:backgroundTint="@color/white"
+
+        android:fontFamily="sans-serif"
+        android:text="Kamera"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCapture"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="160dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="220dp"
+        android:backgroundTint="@color/white"
+
+        android:fontFamily="sans-serif"
+        android:text="ADV Kamera"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.436"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/btnCapture"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="28dp"
+        android:backgroundTint="@color/white"
+
+        android:fontFamily="sans-serif"
+        android:text="VIEW RECORDS"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintVertical_bias="0.13" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
