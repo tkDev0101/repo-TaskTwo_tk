@@ -8,4 +8,11 @@
     <string name="description">Description</string>
     <string name="igama_lakho">iGama Lakho</string>
     <string name="tk_s_timesheet_entry">TK\'s Timesheet Entry</string>
+    <string name="enter_email">enter email</string>
+    <string name="enter_password">enter password</string>
+    <string name="register">REGISTER</string>
+    <string name="confirm_your_password">confirm your password</string>
+    <string name="already_registered_login">Already Registered? Login</string>
+    <string name="login">LOGIN</string>
+    <string name="not_registered_yet_register">Not Registered Yet? Register</string>
 </resources>
