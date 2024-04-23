@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "218531771520",
+    "project_id": "authentication2-nash-c870c",
+    "storage_bucket": "authentication2-nash-c870c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:218531771520:android:64d97a579964c5ba1e6265",
+        "android_client_info": {
+          "package_name": "com.example.authentication2_nash"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnUmBZ-ObN6Zxkmkh0L5zXdg_b5IkI12k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:218531771520:android:a11ca1377ccf1b4a1e6265",
+        "android_client_info": {
+          "package_name": "com.example.authentication3_nash"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnUmBZ-ObN6Zxkmkh0L5zXdg_b5IkI12k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:218531771520:android:ad2da2b6cd4fa5a61e6265",
+        "android_client_info": {
+          "package_name": "com.example.tasktwo_tk"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnUmBZ-ObN6Zxkmkh0L5zXdg_b5IkI12k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

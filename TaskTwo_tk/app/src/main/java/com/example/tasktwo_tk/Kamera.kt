@@ -9,6 +9,7 @@ import android.provider.MediaStore
 import android.util.Base64
 import android.widget.Button
 import android.widget.ImageView
+import com.google.firebase.database.FirebaseDatabase
 import java.io.ByteArrayOutputStream
 
 class Kamera : AppCompatActivity() {
