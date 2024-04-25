@@ -15,7 +15,7 @@
         android:layout_width="148dp"
         android:layout_height="180dp"
 
-        app:srcCompat="@drawable/tkprofilepic"
+        app:srcCompat="@drawable/ic_launcher_background"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

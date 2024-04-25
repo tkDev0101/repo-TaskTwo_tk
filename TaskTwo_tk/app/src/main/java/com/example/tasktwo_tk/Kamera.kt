@@ -29,9 +29,8 @@ class Kamera : AppCompatActivity() {
         mainActBtn = findViewById(R.id.btnMainActivity)
 
 
+        // BTN Listener ->  //call 1.Method to open Camera
         takePicBtn.setOnClickListener{
-
-            //call 1.Method
             openCamera()
         }
 
@@ -114,7 +113,6 @@ class Kamera : AppCompatActivity() {
             databaseRefernce.child(imgId!!).setValue(base64Image)
 
         }//method ends
-
 
 
     }//end Kamera Class

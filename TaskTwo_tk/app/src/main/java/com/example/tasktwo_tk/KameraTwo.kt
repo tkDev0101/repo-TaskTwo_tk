@@ -114,7 +114,7 @@ class KameraTwo : AppCompatActivity() {
         firestore.collection("images")
             .add(imageMap)
             .addOnSuccessListener {
-                Toast.makeText(this, "Saved online", Toast.LENGTH_SHORT).show() }
+                Toast.makeText(this, "Image Saved online(Firestore)", Toast.LENGTH_SHORT).show() }
             .addOnFailureListener{
                 Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show() }
     }
