@@ -15,4 +15,10 @@
     <string name="already_registered_login">Already Registered? Login</string>
     <string name="login">LOGIN</string>
     <string name="not_registered_yet_register">Not Registered Yet? Register</string>
+    <string name="view_records">VIEW RECORDS</string>
+    <string name="adv_kamera">ADV Kamera</string>
+    <string name="kamera">Kamera</string>
+    <string name="choose_image">CHOOSE IMAGE</string>
+    <string name="take_pic">TAKE PIC</string>
+    <string name="upload_image">UPLOAD IMAGE</string>
 </resources>

@@ -1,9 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:background="@drawable/colourgradienttwo"
     tools:context=".KameraTwo">
+
+
+    <ImageView
+        android:id="@+id/imageViewCam2"
+        android:layout_width="186dp"
+        android:layout_height="156dp"
+        app:srcCompat="@drawable/ic_launcher_background"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.083" />
+
+
+    <Button
+        android:id="@+id/btnCam2Choose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginTop="50dp"
+
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif"
+        android:padding="16dp"
+        android:text="@string/choose_image"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewCam2"
+        app:layout_constraintVertical_bias="0.118" />
+
+
+    <Button
+        android:id="@+id/btnCam2TakePic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginTop="50dp"
+
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif"
+        android:padding="16dp"
+        android:text="@string/take_pic"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCam2Choose"
+        app:layout_constraintVertical_bias="0.085" />
+
+
+    <Button
+        android:id="@+id/btnCam2UploadImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginTop="50dp"
+
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif"
+        android:padding="16dp"
+        android:text="@string/upload_image"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.553"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCam2TakePic"
+        app:layout_constraintVertical_bias="0.187" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,9 @@
 package com.example.tasktwo_tk
 
+import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -29,6 +31,11 @@ class MainActivity : AppCompatActivity() {
     lateinit var startTimeBtn: Button
     lateinit var endDateBtn: Button
     lateinit var endTimeBtn: Button
+
+    lateinit var takePicBtn: Button
+    lateinit var btnAdvCam: Button
+    lateinit var btnViewRec: Button
+
     lateinit var database: DatabaseReference
 
     //GLOBALS
@@ -51,6 +58,10 @@ class MainActivity : AppCompatActivity() {
         endTimeBtn = findViewById(R.id.btnEndTime)
         captureImgButton = findViewById(R.id.btnCapture)
 
+        takePicBtn =findViewById(R.id.btnKamera)
+        btnAdvCam =findViewById(R.id.btnAdvCam)
+        btnViewRec =findViewById(R.id.btnViewRec)
+
         database = FirebaseDatabase.getInstance().reference
 
 
@@ -70,7 +81,7 @@ class MainActivity : AppCompatActivity() {
         startTimeBtn.setOnClickListener{showTimePicker((startTimeListener))}
         endTimeBtn.setOnClickListener{showTimePicker((endTimeListener))}
 
-        //Firebase BTN
+        // BTN Listener ->  Save Entry 2 Firebase
         captureImgButton.setOnClickListener{
             val selectedItem = spinner.selectedItem as String
             val taskName = edName.text.toString()
@@ -95,6 +106,23 @@ class MainActivity : AppCompatActivity() {
 
         }//end_Firebase_BTN
 
+
+        // BTN Listener -> TAKE PIC STUFF
+        takePicBtn.setOnClickListener{
+            val intent = Intent(this, Kamera::class.java)
+            startActivity(intent)
+        }
+
+        // BTN Listener -> ADVANCED TAKE PIC STUFF
+        btnAdvCam.setOnClickListener{
+            val intentCamTwo = Intent(this, KameraTwo::class.java)
+            startActivity(intentCamTwo)
+        }
+
+        // BTN Listener -> Call Method -> View Records
+        btnViewRec.setOnClickListener() {
+            fetchAndDisplay()
+        }
 
 
     }//end_onCreate
@@ -123,10 +151,11 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    //FORMAT --> fb --> date --> date util
+    //string format start time
+
 
     //1.LISTENER -> startDate Btn
-
-    //FORMAT --> fb --> date --> date util
     val startDatelistener = DatePickerDialog.OnDateSetListener { _: DatePicker, year:Int, month:Int, day:Int
         ->
         val selectedCalendar = Calendar.getInstance()
@@ -137,7 +166,6 @@ class MainActivity : AppCompatActivity() {
         startDateBtn.text = selectedDateString
 
     }
-
 
     //2.LISTENER -> endDate Btn
     val endDateListener = DatePickerDialog.OnDateSetListener { _: DatePicker, year:Int, month:Int, day:Int
@@ -151,9 +179,7 @@ class MainActivity : AppCompatActivity() {
         endDateBtn.text = selectedDateString
     }
 
-
     //3.LISTENER -> startTime Btn
-    //string format start time
     val startTimeListener = TimePickerDialog.OnTimeSetListener { _: TimePicker, hourOfDay:Int, minute:Int
         ->
         val selectedCalendar = Calendar.getInstance()
@@ -166,7 +192,6 @@ class MainActivity : AppCompatActivity() {
         startTimeBtn.text = selectedTimeString
 
     }
-
 
     //4.LISTENER -> endTime BTN
     val endTimeListener = TimePickerDialog.OnTimeSetListener { _: TimePicker, hourOfDay:Int, minute:Int
@@ -182,7 +207,6 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-
 
 
 
@@ -244,19 +268,74 @@ class MainActivity : AppCompatActivity() {
         }//end_If
 
     }//end_saveToFirebase
-}
 
-data class TaskModel(
 
-    var taskName: String? = null,
-    var taskDesc: String? = null,
-    var startDateString: String? = null,
-    var startTimeString: String? = null,
-    var endDateString: String? = null,
-    var endTimeString: String? = null,
-    var totalTimeString: String? = null,
 
-    //1. declare variable in Model Class
-    var taskCat : String? = null
+    //METHOD -> to View Records -> View the items from the db
+    fun fetchAndDisplay()
+    {
+        database.child("ChildNode-TaskItems").get().addOnSuccessListener { dataSnapshot ->
 
-    )
+            if (dataSnapshot.exists())
+            {
+                val records = ArrayList<String>()
+                dataSnapshot.children.forEach { snapshot ->
+                    val task = snapshot.getValue(TaskModel::class.java)
+
+                    task?.let { records.add(  "\nTask Name: ${it.taskName}," +
+                                                        "\nDescription: ${it.taskDesc}," +
+                                                        "\nCATEGORY: ${it.taskCat}" +
+                                                        "\n\nStart Date: ${it.startDateString}," +
+                                                        "\nStart Time: ${it.startTimeString}," +
+                                                        "\nEnd Date: ${it.endDateString}," +
+                                                        "\nEnd Time: ${it.endTimeString}," +
+                                                        "\nTotal Time: ${it.totalTimeString}\n" )
+                    }
+                }
+
+                //Call Method -> Fetch && Display Database Records
+                displayDialog(records)
+
+            } else {
+                Toast.makeText(this, "No records Found", Toast.LENGTH_SHORT).show() }
+        }
+            .addOnFailureListener {
+                Toast.makeText(this, "Failed to detc data", Toast.LENGTH_SHORT).show() }
+
+
+    }//end View Method
+
+    //METHOD -> Fetch && Display Database Records
+    fun displayDialog(records: ArrayList<String>)
+    {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Database Records")
+
+        val arrayAdapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, records)
+        builder.setAdapter (arrayAdapter, null)
+        builder.setPositiveButton( "Ok", null)
+        builder.show()
+
+    }
+
+}//class ends
+
+
+
+data class TaskModel(   var taskName: String? = null,
+                        var taskDesc: String? = null,
+                        var startDateString: String? = null,
+                        var startTimeString: String? = null,
+                        var endDateString: String? = null,
+                        var endTimeString: String? = null,
+                        var totalTimeString: String? = null,
+
+                        //1. declare variable in Model Class
+                        var taskCat : String? = null )
+
+
+//1. declare variable in model class
+//2. Assign value to varible
+//3. Pass value into database
+
+

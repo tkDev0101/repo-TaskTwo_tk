@@ -17,7 +17,7 @@ class Kamera : AppCompatActivity() {
     //VARIABLES
     lateinit var takePicBtn: Button
     lateinit var imgViewPic: ImageView
-
+    lateinit var mainActBtn: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +26,7 @@ class Kamera : AppCompatActivity() {
         //TYPECASTING
         takePicBtn = findViewById(R.id.btnCaptureImg)
         imgViewPic = findViewById(R.id.imageView)
+        mainActBtn = findViewById(R.id.btnMainActivity)
 
 
         takePicBtn.setOnClickListener{
@@ -33,6 +34,14 @@ class Kamera : AppCompatActivity() {
             //call 1.Method
             openCamera()
         }
+
+        // BTN -> Go 2 main Activity
+        mainActBtn.setOnClickListener{
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+
 
     }//end_onCreate
 
@@ -53,7 +62,6 @@ class Kamera : AppCompatActivity() {
         }
 
 
-///*
 
     //2.METHOD ? -> called when the camera activity finishes
     override fun onActivityResult(requestCode:Int, resultCode:Int, data:Intent?)
@@ -72,10 +80,8 @@ class Kamera : AppCompatActivity() {
         }
 
     }//method ends
- //*/
 
 
-///*
       //3.METHOD -> Save Image to firebase
         fun saveImageToFirebase(imageBitmap: Bitmap)
         {
@@ -108,7 +114,6 @@ class Kamera : AppCompatActivity() {
             databaseRefernce.child(imgId!!).setValue(base64Image)
 
         }//method ends
-     //*/
 
 
 
