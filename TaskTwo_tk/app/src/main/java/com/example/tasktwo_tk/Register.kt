@@ -11,7 +11,6 @@ class Register : AppCompatActivity() {
 
     //Using Binding -> Gradle Script
     private lateinit var binding: ActivityRegisterBinding
-
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,9 +20,8 @@ class Register : AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //intialize
+        //initialize
         firebaseAuth = FirebaseAuth.getInstance()
-
 
 
         //Event Handler -> Binding when clicking on tv Link
@@ -54,7 +52,6 @@ class Register : AppCompatActivity() {
 
                             if(it.isSuccessful){
 
-
                                 Toast.makeText(this, "Successful Sign Up ->>>> LoginActivity", Toast.LENGTH_SHORT).show()
                                 val intent = Intent(this@Register, Login::class.java)
                                 startActivity(intent)
@@ -66,22 +63,17 @@ class Register : AppCompatActivity() {
 
                         }//listener
 
-
                 } else{  // password != confirmPassword
 
                     Toast.makeText(this, "Passwords Are Not Matching 2", Toast.LENGTH_SHORT).show()
                 }
-
-
 
             } else{ //1 of da Fields is EMPTY
 
                 Toast.makeText(this, "Email or password is Empty", Toast.LENGTH_SHORT).show()
             }
 
-
         }//end_onClick_Listen
-
 
 
 

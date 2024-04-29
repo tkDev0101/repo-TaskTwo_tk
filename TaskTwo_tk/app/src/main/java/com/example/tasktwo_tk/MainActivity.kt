@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var takePicBtn: Button
     lateinit var btnAdvCam: Button
     lateinit var btnViewRec: Button
+    lateinit var btn_navDrawer: Button
 
     lateinit var database: DatabaseReference
 
@@ -61,6 +62,7 @@ class MainActivity : AppCompatActivity() {
         takePicBtn =findViewById(R.id.btnKamera)
         btnAdvCam =findViewById(R.id.btnAdvCam)
         btnViewRec =findViewById(R.id.btnViewRec)
+        btn_navDrawer =findViewById(R.id.btn_navDrawer)
 
         database = FirebaseDatabase.getInstance().reference
 
@@ -107,6 +109,11 @@ class MainActivity : AppCompatActivity() {
         }//end_Firebase_BTN
 
 
+        // BTN Listener -> Call Method -> View Records
+        btnViewRec.setOnClickListener() {
+            fetchAndDisplay()
+        }
+
         // BTN Listener -> TAKE PIC STUFF
         takePicBtn.setOnClickListener{
             val intent = Intent(this, Kamera::class.java)
@@ -119,9 +126,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intentCamTwo)
         }
 
-        // BTN Listener -> Call Method -> View Records
-        btnViewRec.setOnClickListener() {
-            fetchAndDisplay()
+
+        // BTN Listener -> Go 2 Navigation Drawer Activity
+        btn_navDrawer.setOnClickListener() {
+            val intentCamTwo = Intent(this, NavigationDraweViewsActivity::class.java)
+            startActivity(intentCamTwo)
         }
 
 

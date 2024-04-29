@@ -41,7 +41,6 @@ class Kamera : AppCompatActivity() {
         }
 
 
-
     }//end_onCreate
 
 
@@ -56,29 +55,30 @@ class Kamera : AppCompatActivity() {
 
         //inline variable that defines the number of pictures the request can take
         companion object{
-
             const val CAMERA_REQUEST_CODE = 100;
         }
 
 
-
-    //2.METHOD ? -> called when the camera activity finishes
-    override fun onActivityResult(requestCode:Int, resultCode:Int, data:Intent?)
-    {
-        // calls the parent activity's
-        super.onActivityResult(requestCode, resultCode, data)
-
-        // Check if the request code matches the camera request && if the camera captured the image successfully && checks if the camera activity finished successfully
-        if (requestCode == CAMERA_REQUEST_CODE && resultCode == Activity.RESULT_OK)
+        //2.METHOD ? -> called when the camera activity finishes
+        override fun onActivityResult(requestCode:Int, resultCode:Int, data:Intent?)
         {
-            // If so, extract the captured image as a Bitmap from the Intent's extras
-            val imageBitmap = data?.extras?.get("data") as Bitmap
+            // calls the parent activity's
+            super.onActivityResult(requestCode, resultCode, data)
 
-            // Call 3.Method -> save to firebase
-            saveImageToFirebase(imageBitmap)
-        }
+            // Check if the request code matches the camera request && if the camera captured the image successfully && checks if the camera activity finished successfully
+            if (requestCode == CAMERA_REQUEST_CODE && resultCode == Activity.RESULT_OK)
+            {
+                // If so, extract the captured image as a Bitmap from the Intent's extras
+                val imageBitmap = data?.extras?.get("data") as Bitmap
 
-    }//method ends
+
+                imgViewPic.setImageBitmap(imageBitmap)
+
+                // Call 3.Method -> save to firebase
+                saveImageToFirebase(imageBitmap)
+            }
+
+        }//method ends
 
 
       //3.METHOD -> Save Image to firebase

@@ -22,14 +22,13 @@ class Login : AppCompatActivity() {
         //setContentView(R.layout.activity_login)
 
 
+        //Alternative to typecasting -> Binding
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
-        //intialize
+        //initialize
         firebaseAuth = FirebaseAuth.getInstance()
-
-
 
 
         //Event Handler -> Binding when clicking on tv Link
@@ -71,8 +70,7 @@ class Login : AppCompatActivity() {
 
                 Toast.makeText(this, "Email or password is Empty", Toast.LENGTH_SHORT).show()
             }
-
-
+            
         }//end_onClick_Listen
 
 

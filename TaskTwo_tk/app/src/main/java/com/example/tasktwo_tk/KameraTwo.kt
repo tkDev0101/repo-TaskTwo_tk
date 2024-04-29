@@ -65,25 +65,29 @@ class KameraTwo : AppCompatActivity() {
     }//end_onCreate
 
 
-    //METHOD -> to Choose an Image
+    //METHOD -> to Choose an Image from device gallery
     fun selectImage()
     {
         val intent = Intent()
+
+        //intent is for selecting an image file of any format.
         intent.type ="image/*"
         intent.action = Intent.ACTION_GET_CONTENT
         startActivityForResult(
-            Intent.createChooser(intent,"Select image"),
-            PICK_IMAGE_REQUEST)
+            Intent.createChooser(intent,"Select image"), PICK_IMAGE_REQUEST)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?)
+    {
+        // calls the parent activity's
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data
-            != null && data.data != null) {
+
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.data != null)
+        {
             filePath = data.data
             try {
-                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver,
-                    filePath)
+                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filePath)
                 imageViewCam.setImageBitmap(bitmap)
             } catch (e: IOException) {
                 e.printStackTrace()
@@ -94,7 +98,9 @@ class KameraTwo : AppCompatActivity() {
             // Save image to Firebase
             saveImageToFirebase(imageBitmap)
         }
+
     }//end method
+
 
     //METHOD -> Take Pic
     fun dispatchTakePictureIntent()
@@ -110,8 +116,10 @@ class KameraTwo : AppCompatActivity() {
     //METHOD -> to save the image url
     fun saveImageUrlToFirestore(imageURL :String)
     {
+        //uses the hashMapOf function to create a map with a single key-value pair.
         val imageMap = hashMapOf( "imageUrl" to imageURL)
-        firestore.collection("ChildNode-images ")
+
+        firestore.collection("ChildNode-images")
             .add(imageMap)
             .addOnSuccessListener {
                 Toast.makeText(this, "Image Saved online(Firestore)", Toast.LENGTH_SHORT).show() }
