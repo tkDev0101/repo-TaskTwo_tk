@@ -111,7 +111,7 @@ class KameraTwo : AppCompatActivity() {
     fun saveImageUrlToFirestore(imageURL :String)
     {
         val imageMap = hashMapOf( "imageUrl" to imageURL)
-        firestore.collection("ChildNode-images")
+        firestore.collection("ChildNode-images ")
             .add(imageMap)
             .addOnSuccessListener {
                 Toast.makeText(this, "Image Saved online(Firestore)", Toast.LENGTH_SHORT).show() }
