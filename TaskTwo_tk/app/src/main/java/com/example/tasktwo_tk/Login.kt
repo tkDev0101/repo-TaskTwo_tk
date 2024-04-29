@@ -57,7 +57,7 @@ class Login : AppCompatActivity() {
                         if(it.isSuccessful){
 
                             Toast.makeText(this, "Successful Login ->> NavigationDraweViewsActivity -> MainActivity", Toast.LENGTH_SHORT).show()
-                            val intent = Intent(this@Login, NavigationDraweViewsActivity::class.java)
+                            val intent = Intent(this@Login, MainActivity::class.java)
                             startActivity(intent)
 
                         }else{  //it.is NOT Successful
