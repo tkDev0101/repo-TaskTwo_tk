@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/menu_home" />
+
+        <item
+            android:id="@+id/nav_OtherMain"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Other Main" />
+
+        <item
+            android:id="@+id/nav_Login"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="LOGIN" />
+
+        <item
+            android:id="@+id/nav_Register"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="REGISTER" />
+
+        <item
+            android:id="@+id/nav_timer"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Timer" />
+
+        <item
+            android:id="@+id/nav_graph"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="graph" />
+
+        <item
+            android:id="@+id/nav_calcs"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="calcs" />
+
+        <item
+            android:id="@+id/nav_dates"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Dates" />
+
+
+
+
+        <item
+            android:id="@+id/nav_Camera"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Camera" />
+
+
+        <item
+            android:id="@+id/nav_Adv_Camera"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Advanced Camera" />
+
+
+    </group>
+</menu>
