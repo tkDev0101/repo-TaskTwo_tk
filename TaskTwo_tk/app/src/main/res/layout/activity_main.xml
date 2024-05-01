@@ -70,21 +70,42 @@
         android:id="@+id/spinner"
         android:layout_width="270dp"
         android:layout_height="50dp"
-        android:entries="@array/tk_spinner_items_Array"
-        tools:ignore="VisualLintBounds"
+        android:layout_centerHorizontal="true"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.453"
+        app:layout_constraintHorizontal_bias="0.382"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edDescription"
-        app:layout_constraintVertical_bias="0.069"/>
+        app:layout_constraintTop_toBottomOf="@+id/edTextViewCategory"
+        app:layout_constraintVertical_bias="0.055"
+        tools:ignore="VisualLintBounds" />
 
+    <Button
+        android:id="@+id/btnEndTime"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/white"
+
+        android:fontFamily="sans-serif"
+        android:text="@string/end_time"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toEndOf="@+id/btnEndDate"
+        app:layout_constraintTop_toBottomOf="@+id/btnStartTime"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="VisualLintBounds" />
 
     <Button
         android:id="@+id/btnStartDate"
         android:layout_width="160dp"
         android:layout_height="48dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="20dp"
         android:backgroundTint="@color/white"
 
         android:fontFamily="sans-serif"
@@ -96,7 +117,103 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner"
-        app:layout_constraintVertical_bias="0.073"
+        app:layout_constraintVertical_bias="0.01"
+        tools:ignore="VisualLintBounds" />
+
+    <Button
+        android:id="@+id/btnCapture"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:backgroundTint="@color/white"
+
+        android:fontFamily="sans-serif"
+        android:text="@string/save_entry"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnEndDate"
+        app:layout_constraintVertical_bias="0.089" />
+
+    <Button
+        android:id="@+id/btnViewRec"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="28dp"
+        android:backgroundTint="@color/white"
+
+        android:fontFamily="sans-serif"
+        android:text="@string/view_records"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toEndOf="@+id/btnCapture"
+        app:layout_constraintTop_toBottomOf="@+id/btnEndTime"
+        app:layout_constraintVertical_bias="0.022"
+        tools:ignore="TextSizeCheck" />
+
+    <Button
+        android:id="@+id/btnAdvCam"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:backgroundTint="@color/white"
+
+        android:fontFamily="sans-serif"
+        android:text="@string/adv_kamera"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toEndOf="@+id/btnKamera"
+        app:layout_constraintTop_toBottomOf="@+id/btnCapture"
+        app:layout_constraintVertical_bias="0.103" />
+
+    <Button
+        android:id="@+id/btnKamera"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:backgroundTint="@color/white"
+
+        android:fontFamily="sans-serif"
+        android:text="@string/kamera"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCapture"
+        app:layout_constraintVertical_bias="0.103" />
+
+    <Button
+        android:id="@+id/btnEndDate"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/white"
+
+        android:fontFamily="sans-serif"
+        android:text="@string/end_date"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnStartDate"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="VisualLintBounds" />
 
     <Button
@@ -118,142 +235,72 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/btnStartDate"
         app:layout_constraintTop_toBottomOf="@+id/spinner"
-        app:layout_constraintVertical_bias="0.022"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="VisualLintBounds,TextSizeCheck" />
 
-    <Button
-        android:id="@+id/btnEndDate"
-        android:layout_width="160dp"
+    <EditText
+        android:id="@+id/edTextViewCategory"
+        android:layout_width="131dp"
         android:layout_height="48dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@color/white"
+        android:layout_marginTop="52dp"
 
-        android:fontFamily="sans-serif"
-        android:text="@string/end_date"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="User Enter Category here"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textColorHint="@color/black"
+
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.194"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnStartDate"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="VisualLintBounds" />
+        app:layout_constraintTop_toBottomOf="@+id/edDescription"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/btnEndTime"
-        android:layout_width="160dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="15dp"
-        android:backgroundTint="@color/white"
-
-        android:fontFamily="sans-serif"
-        android:text="@string/end_time"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.53"
-        app:layout_constraintStart_toEndOf="@+id/btnEndDate"
-        app:layout_constraintTop_toBottomOf="@+id/btnStartTime"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="VisualLintBounds" />
-
-    <Button
-        android:id="@+id/btnCapture"
-        android:layout_width="160dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="20dp"
-        android:backgroundTint="@color/white"
-
-        android:fontFamily="sans-serif"
-        android:text="@string/save_entry"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.082"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEndDate"
-        app:layout_constraintVertical_bias="0.107" />
-
-    <Button
-        android:id="@+id/btnKamera"
-        android:layout_width="160dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="20dp"
-        android:backgroundTint="@color/white"
-
-        android:fontFamily="sans-serif"
-        android:text="@string/kamera"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.082"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCapture"
-        app:layout_constraintVertical_bias="0.125" />
-
-    <Button
-        android:id="@+id/btnAdvCam"
-        android:layout_width="160dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="20dp"
-        android:backgroundTint="@color/white"
-
-        android:fontFamily="sans-serif"
-        android:text="@string/adv_kamera"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.281"
-        app:layout_constraintStart_toEndOf="@+id/btnKamera"
-        app:layout_constraintTop_toBottomOf="@+id/btnCapture"
-        app:layout_constraintVertical_bias="0.125" />
-
-    <Button
-        android:id="@+id/btnViewRec"
-        android:layout_width="160dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="28dp"
-        android:backgroundTint="@color/white"
-
-        android:fontFamily="sans-serif"
-        android:text="@string/view_records"
-        android:textColor="#000000"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.692"
-        app:layout_constraintStart_toEndOf="@+id/btnCapture"
-        app:layout_constraintTop_toBottomOf="@+id/btnEndTime"
-        app:layout_constraintVertical_bias="0.126"
-        tools:ignore="TextSizeCheck" />
-
-    <Button
-        android:id="@+id/btn_navDrawer"
+        android:id="@+id/btnSaveUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/white"
 
+        android:layout_marginBottom="200dp"
+        android:backgroundTint="@color/black"
         android:fontFamily="sans-serif"
-        android:text="Navigation Drawer"
-        android:textColor="#000000"
-        android:textSize="15sp"
-        android:textStyle="bold"
+        android:padding="16dp"
+        android:text="SAVE User Spinner Input"
+        android:textSize="12sp"
+        android:textColor="@color/white"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toEndOf="@+id/edTextViewCategory"
+        app:layout_constraintTop_toBottomOf="@+id/edDescription"
+        app:layout_constraintVertical_bias="0.118" />
+
+    <EditText
+        android:id="@+id/edTvDailyMin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="DailyMin"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.232"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnKamera" />
+        app:layout_constraintTop_toBottomOf="@+id/btnKamera"
+        app:layout_constraintVertical_bias="0.523" />
+
+    <EditText
+        android:id="@+id/edTvDailyMax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="DailyMax"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/edTvDailyMin"
+        app:layout_constraintTop_toBottomOf="@+id/btnAdvCam" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,7 +23,6 @@ import java.util.Locale
 class MainActivity : AppCompatActivity() {
 
     //VARIABLES
-    lateinit var spinner: Spinner
     lateinit var captureImgButton: Button
     lateinit var edName: EditText
     lateinit var edDesc: EditText
@@ -35,7 +34,20 @@ class MainActivity : AppCompatActivity() {
     lateinit var takePicBtn: Button
     lateinit var btnAdvCam: Button
     lateinit var btnViewRec: Button
-    lateinit var btn_navDrawer: Button
+
+
+    //1. declare Variables
+    lateinit var edTvDailyMin: EditText
+    lateinit var edTvDailyMax: EditText
+
+    lateinit var spinner: Spinner
+    lateinit var edUserInput: EditText
+    lateinit var btnSave : Button
+
+    lateinit var categoriesArrayList : ArrayList<String>
+    lateinit var adapter : ArrayAdapter<String>
+
+
 
     lateinit var database: DatabaseReference
 
@@ -44,6 +56,7 @@ class MainActivity : AppCompatActivity() {
     var startTime: Date?=null
     var endDate: Date?=null
     var endTime: Date?=null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,19 +75,41 @@ class MainActivity : AppCompatActivity() {
         takePicBtn =findViewById(R.id.btnKamera)
         btnAdvCam =findViewById(R.id.btnAdvCam)
         btnViewRec =findViewById(R.id.btnViewRec)
-        btn_navDrawer =findViewById(R.id.btn_navDrawer)
+
+        //2. Typecasting
+        edTvDailyMin =findViewById(R.id.edTvDailyMin)
+        edTvDailyMax =findViewById(R.id.edTvDailyMax)
+
+
+        //SPINNER
+        spinner = findViewById(R.id.spinner)
+        edUserInput = findViewById(R.id.edTextViewCategory)
+        btnSave = findViewById(R.id.btnSaveUser)
+
 
         database = FirebaseDatabase.getInstance().reference
 
 
+        //simple code to populate the spinner - without using android resource array file
+        categoriesArrayList = ArrayList()
+        adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, categoriesArrayList)
+        adapter.setDropDownViewResource (android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter = adapter
 
-        //connects the spinner with its adapter
-        val spinnerAdapter = ArrayAdapter.createFromResource(
-                                this, R.array.tk_spinner_items_Array,
-                                android.R.layout.simple_spinner_dropdown_item )
 
-        // -> spinner to display data using the adapter's contents.
-        spinner.adapter = spinnerAdapter
+        // BTN Listener ->save user inout from edit text to spinner
+        btnSave.setOnClickListener{
+
+            val newCategory = edUserInput.text.toString()
+            if (newCategory.isNotEmpty() && !categoriesArrayList.contains(newCategory))
+            {
+                categoriesArrayList.add(newCategory)
+                adapter.notifyDataSetChanged()
+                edUserInput.text.clear()
+            }
+        }
+
+
 
 
         //OnClickListener EVENTS ->  Call BTNS
@@ -85,9 +120,13 @@ class MainActivity : AppCompatActivity() {
 
         // BTN Listener ->  Save Entry 2 Firebase
         captureImgButton.setOnClickListener{
+
             val selectedItem = spinner.selectedItem as String
             val taskName = edName.text.toString()
             val taskDesc = edDesc.text.toString()
+
+            val taskdailyMin = edTvDailyMin.text.toString()
+            val taskdailyMax = edTvDailyMax.text.toString()
 
 
 
@@ -104,7 +143,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             //ELSE -> Call 3.Method -> Save 2 Firebase
-            saveToFirebase(selectedItem,taskName, taskDesc)
+            saveToFirebase(selectedItem,taskName, taskDesc, taskdailyMin, taskdailyMax)
 
         }//end_Firebase_BTN
 
@@ -126,13 +165,13 @@ class MainActivity : AppCompatActivity() {
             startActivity(intentCamTwo)
         }
 
-
+/*
         // BTN Listener -> Go 2 Navigation Drawer Activity
         btn_navDrawer.setOnClickListener() {
             val intentCamTwo = Intent(this, NavigationDraweViewsActivity::class.java)
             startActivity(intentCamTwo)
         }
-
+*/
 
     }//end_onCreate
 
@@ -226,7 +265,7 @@ class MainActivity : AppCompatActivity() {
 
 
     //3.METHOD -> Save 2 Firebase
-    fun saveToFirebase(item:String, taskName:String, taskDesc:String) {
+    fun saveToFirebase(item:String, taskName:String, taskDesc:String, taskdailyMin:String, taskdailyMax:String) {
 
         //FORMATS
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
@@ -263,7 +302,7 @@ class MainActivity : AppCompatActivity() {
         {
             //i. Creating a TaskModel Object:
             val task = TaskModel( taskName,taskDesc,startDateString, startTimeString, endDateString,
-                                    endTimeString, totalTimeString, taskCat )
+                                    endTimeString, totalTimeString, taskCat, taskdailyMin, taskdailyMax  )
 
             //ii. Saving the TaskModel Object to Firebase:
             database.child("ChildNode-TaskItems").child(key).setValue(task)
@@ -294,6 +333,10 @@ class MainActivity : AppCompatActivity() {
                     task?.let { records.add(  "\nTask Name: ${it.taskName}," +
                                                         "\nDescription: ${it.taskDesc}," +
                                                         "\nCATEGORY: ${it.taskCat}" +
+
+                            "\n\ntaskdailyMin: ${it.taskdailyMin}" +
+                            "\ntaskdailyMax: ${it.taskdailyMax}" +
+
                                                         "\n\nStart Date: ${it.startDateString}," +
                                                         "\nStart Time: ${it.startTimeString}," +
                                                         "\nEnd Date: ${it.endDateString}," +
@@ -340,11 +383,12 @@ data class TaskModel(   var taskName: String? = null,
                         var totalTimeString: String? = null,
 
                         //1. declare variable in Model Class
-                        var taskCat : String? = null )
+                        var taskCat : String? = null,
 
-
+                        var taskdailyMin : String? = null,
+                        var taskdailyMax : String? = null )
 //1. declare variable in model class
-//2. Assign value to varible
+//2. Assign value to variable
 //3. Pass value into database
 
 

@@ -32,4 +32,7 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="user_populates_spinner">User Populates Spinner</string>
+    <string name="user_enter_category_here">User Enter Category here</string>
+    <string name="save_user_entry">SAVE USER ENTRY</string>
 </resources>
