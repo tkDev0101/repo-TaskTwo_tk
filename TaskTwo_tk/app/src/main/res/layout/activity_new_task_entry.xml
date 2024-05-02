@@ -103,46 +103,11 @@
 
 
     <Button
-        android:id="@+id/btnStartDate"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="80dp"
-        android:layout_marginTop="310dp"
-        android:layout_marginStart="90dp"
-        android:padding="8dp"
-
-        android:text="START DATE"
-        android:backgroundTint="@color/white"
-        android:fontFamily="sans-serif"
-        android:textColor="#000000"
-        android:textStyle="bold" />
-
-
-
-
-    <Button
-        android:id="@+id/btnEndDate"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="80dp"
-        android:layout_marginTop="310dp"
-        android:layout_marginStart="200dp"
-        android:padding="8dp"
-
-        android:text="END DATE"
-        android:backgroundTint="@color/white"
-        android:fontFamily="sans-serif"
-        android:textColor="#000000"
-        android:textStyle="bold" />
-
-
-
-    <Button
         android:id="@+id/btnStartTime"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="80dp"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="410dp"
         android:layout_marginStart="90dp"
         android:padding="8dp"
 
@@ -154,8 +119,43 @@
 
 
 
+
     <Button
         android:id="@+id/btnEndTime"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginTop="410dp"
+        android:layout_marginStart="200dp"
+        android:padding="8dp"
+
+        android:text="END TIME"
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+
+
+    <Button
+        android:id="@+id/btnStartDate"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginTop="360dp"
+        android:layout_marginStart="90dp"
+        android:padding="8dp"
+
+        android:text="START DATE"
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+
+
+    <Button
+        android:id="@+id/btnEndDate"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="80dp"
@@ -163,7 +163,7 @@
         android:layout_marginStart="200dp"
         android:padding="8dp"
 
-        android:text="END TIME"
+        android:text="END DATE"
         android:backgroundTint="@color/white"
         android:fontFamily="sans-serif"
         android:textColor="#000000"
@@ -176,7 +176,7 @@
         android:id="@+id/tvDailyGoals"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="460dp"
+        android:layout_marginTop="310dp"
         android:layout_marginStart="10dp"
         android:minHeight="48dp"
 
@@ -192,21 +192,55 @@
         android:id="@+id/edTvDailyMin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="460dp"
-        android:layout_marginStart="90dp"
+        android:layout_marginTop="310dp"
+        android:layout_marginStart="140dp"
         android:minHeight="48dp"
 
-        android:hint="DailyMin" />
+        android:hint="Min Hours" />
 
     <EditText
         android:id="@+id/edTvDailyMax"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="460dp"
-        android:layout_marginStart="200dp"
+        android:layout_marginTop="310dp"
+        android:layout_marginStart="280dp"
         android:minHeight="48dp"
 
-        android:hint="Max. Daily goal for hours worked" />
+        android:hint="Max. hours " />
+
+
+
+
+    <Button
+        android:id="@+id/btnStartTime"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginTop="610dp"
+        android:layout_marginStart="90dp"
+        android:padding="8dp"
+
+        android:text="START TIME"
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+
+    <Button
+        android:id="@+id/btnCapture"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginTop="660dp"
+        android:layout_marginStart="90dp"
+        android:padding="8dp"
+
+        android:text="START TIME"
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif"
+        android:textColor="#000000"
+        android:textStyle="bold" />
 
 
 
