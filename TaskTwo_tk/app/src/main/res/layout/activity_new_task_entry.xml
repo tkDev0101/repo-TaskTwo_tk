@@ -1,9 +1,213 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:background="@drawable/colourgradientone"
     tools:context=".NewTaskEntry">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tvLoginTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginTop="30dp"
+
+        android:text="New Timesheet Entry"
+        android:textSize="32sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:typeface="serif"
+        android:textColor="#203354"
+        android:fontFamily="tahoma"/>
+
+
+    <EditText
+        android:id="@+id/edTaskName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginTop="90dp"
+
+        android:ems="10"
+        android:hint="Task Name"
+        android:textSize="20sp"
+        android:inputType="text"
+        tools:ignore="LabelFor"
+        android:importantForAutofill="no"
+        android:minHeight="40dp"/>
+
+
+    <EditText
+        android:id="@+id/edDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginTop="145dp"
+
+        android:ems="10"
+        android:hint="Task Description"
+        android:textSize="20sp"
+        android:inputType="text"
+        tools:ignore="LabelFor"
+        android:importantForAutofill="no"
+        android:minHeight="40dp"/>
+
+
+    <EditText
+        android:id="@+id/edTextViewCategory"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginTop="195dp"
+
+        android:ems="10"
+        android:hint="Enter Task Category"
+        android:textSize="20sp"
+        android:inputType="text"
+        tools:ignore="LabelFor"
+        android:importantForAutofill="no"
+        android:minHeight="40dp"/>
+
+    <Button
+        android:id="@+id/btnSaveUserCategory"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginTop="190dp"
+        android:layout_marginStart="270dp"
+
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif"
+        android:text="Save"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginTop="250dp"
+        android:layout_centerHorizontal="true"
+
+        tools:ignore="VisualLintBounds" />
+
+
+
+    <Button
+        android:id="@+id/btnStartDate"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginTop="310dp"
+        android:layout_marginStart="90dp"
+        android:padding="8dp"
+
+        android:text="START DATE"
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+
+
+
+    <Button
+        android:id="@+id/btnEndDate"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginTop="310dp"
+        android:layout_marginStart="200dp"
+        android:padding="8dp"
+
+        android:text="END DATE"
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+
+
+    <Button
+        android:id="@+id/btnStartTime"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginTop="360dp"
+        android:layout_marginStart="90dp"
+        android:padding="8dp"
+
+        android:text="START TIME"
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+
+
+    <Button
+        android:id="@+id/btnEndTime"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginTop="360dp"
+        android:layout_marginStart="200dp"
+        android:padding="8dp"
+
+        android:text="END TIME"
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+
+
+
+    <TextView
+        android:id="@+id/tvDailyGoals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="460dp"
+        android:layout_marginStart="10dp"
+        android:minHeight="48dp"
+
+        android:text="Set Daily Hours Worked"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:typeface="serif"
+        android:textColor="#203354"
+        android:fontFamily="tahoma"/>
+
+    <EditText
+        android:id="@+id/edTvDailyMin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="460dp"
+        android:layout_marginStart="90dp"
+        android:minHeight="48dp"
+
+        android:hint="DailyMin" />
+
+    <EditText
+        android:id="@+id/edTvDailyMax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="460dp"
+        android:layout_marginStart="200dp"
+        android:minHeight="48dp"
+
+        android:hint="Max. Daily goal for hours worked" />
+
+
+
+</RelativeLayout>
