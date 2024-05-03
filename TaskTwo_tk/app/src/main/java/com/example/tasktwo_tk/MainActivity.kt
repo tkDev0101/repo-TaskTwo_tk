@@ -23,7 +23,6 @@ import java.util.Locale
 class MainActivity : AppCompatActivity() {
 
     //VARIABLES
-    lateinit var captureImgButton: Button
     lateinit var edName: EditText
     lateinit var edDesc: EditText
     lateinit var startDateBtn: Button
@@ -34,6 +33,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var takePicBtn: Button
     lateinit var btnAdvCam: Button
     lateinit var btnViewRec: Button
+
+    lateinit var captureImgButton: Button
 
 
     //1. declare Variables
@@ -161,7 +162,7 @@ class MainActivity : AppCompatActivity() {
 
         // BTN Listener -> ADVANCED TAKE PIC STUFF
         btnAdvCam.setOnClickListener{
-            val intentCamTwo = Intent(this, KameraTwo::class.java)
+            val intentCamTwo = Intent(this, NewTaskEntry::class.java)
             startActivity(intentCamTwo)
         }
 
@@ -281,6 +282,8 @@ class MainActivity : AppCompatActivity() {
         //2. Assign value to variable
         val taskCat = spinner.selectedItem.toString()
 
+        //val imgUrl =
+
 
         //parse values for firebase
         val startDate = dateFormat.parse(startDateString)
@@ -334,8 +337,8 @@ class MainActivity : AppCompatActivity() {
                                                         "\nDescription: ${it.taskDesc}," +
                                                         "\nCATEGORY: ${it.taskCat}" +
 
-                            "\n\ntaskdailyMin: ${it.taskdailyMin}" +
-                            "\ntaskdailyMax: ${it.taskdailyMax}" +
+                                                        "\n\ntaskdailyMin: ${it.taskdailyMin}" +
+                                                        "\ntaskdailyMax: ${it.taskdailyMax}" +
 
                                                         "\n\nStart Date: ${it.startDateString}," +
                                                         "\nStart Time: ${it.startTimeString}," +
@@ -374,21 +377,23 @@ class MainActivity : AppCompatActivity() {
 
 
 
-data class TaskModel(   var taskName: String? = null,
-                        var taskDesc: String? = null,
-                        var startDateString: String? = null,
-                        var startTimeString: String? = null,
-                        var endDateString: String? = null,
-                        var endTimeString: String? = null,
-                        var totalTimeString: String? = null,
+    data class TaskModel(   var taskName: String? = null,
+                            var taskDesc: String? = null,
+                            var startDateString: String? = null,
+                            var startTimeString: String? = null,
+                            var endDateString: String? = null,
+                            var endTimeString: String? = null,
+                            var totalTimeString: String? = null,
 
-                        //1. declare variable in Model Class
-                        var taskCat : String? = null,
+                            //1. declare variable in Model Class
+                            var taskCat : String? = null,
+                            //var imgUrl : String? = null,
 
-                        var taskdailyMin : String? = null,
-                        var taskdailyMax : String? = null )
-//1. declare variable in model class
-//2. Assign value to variable
-//3. Pass value into database
+                            var taskdailyMin : String? = null,
+                            var taskdailyMax : String? = null )
+
+    //1. declare variable in model class
+    //2. Assign value to variable
+    //3. Pass value into database
 
 

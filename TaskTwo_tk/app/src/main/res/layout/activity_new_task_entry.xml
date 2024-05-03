@@ -11,20 +11,19 @@
 
 
     <TextView
-        android:id="@+id/tvLoginTitle"
+        android:id="@+id/tvNewTaskEntryTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
         android:layout_marginTop="30dp"
 
-        android:text="New Timesheet Entry"
+        android:text="@string/new_timesheet_entry"
         android:textSize="32sp"
         android:gravity="center"
         android:textStyle="bold"
         android:typeface="serif"
         android:textColor="#203354"
         android:fontFamily="tahoma"/>
-
 
     <EditText
         android:id="@+id/edTaskName"
@@ -34,29 +33,38 @@
         android:layout_marginTop="90dp"
 
         android:ems="10"
-        android:hint="Task Name"
+        android:hint="@string/task_name"
         android:textSize="20sp"
         android:inputType="text"
-        tools:ignore="LabelFor"
+        tools:ignore="LabelFor,VisualLintTextFieldSize"
         android:importantForAutofill="no"
         android:minHeight="40dp"/>
 
-
     <EditText
-        android:id="@+id/edDescription"
+        android:id="@+id/edTaskDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
         android:layout_marginTop="145dp"
 
         android:ems="10"
-        android:hint="Task Description"
+        android:hint="@string/task_description"
         android:textSize="20sp"
         android:inputType="text"
-        tools:ignore="LabelFor"
+        tools:ignore="LabelFor,VisualLintTextFieldSize"
         android:importantForAutofill="no"
         android:minHeight="40dp"/>
 
+
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginTop="250dp"
+        android:layout_centerHorizontal="true"
+        tools:ignore="VisualLintBounds" />
 
     <EditText
         android:id="@+id/edTextViewCategory"
@@ -66,7 +74,7 @@
         android:layout_marginTop="195dp"
 
         android:ems="10"
-        android:hint="Enter Task Category"
+        android:hint="@string/enter_task_category"
         android:textSize="20sp"
         android:inputType="text"
         tools:ignore="LabelFor"
@@ -83,92 +91,10 @@
 
         android:backgroundTint="@color/white"
         android:fontFamily="sans-serif"
-        android:text="Save"
+        android:text="@string/save"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold" />
-
-
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginHorizontal="50dp"
-        android:layout_marginTop="250dp"
-        android:layout_centerHorizontal="true"
-
-        tools:ignore="VisualLintBounds" />
-
-
-
-    <Button
-        android:id="@+id/btnStartTime"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="80dp"
-        android:layout_marginTop="410dp"
-        android:layout_marginStart="90dp"
-        android:padding="8dp"
-
-        android:text="START TIME"
-        android:backgroundTint="@color/white"
-        android:fontFamily="sans-serif"
-        android:textColor="#000000"
-        android:textStyle="bold" />
-
-
-
-
-    <Button
-        android:id="@+id/btnEndTime"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="80dp"
-        android:layout_marginTop="410dp"
-        android:layout_marginStart="200dp"
-        android:padding="8dp"
-
-        android:text="END TIME"
-        android:backgroundTint="@color/white"
-        android:fontFamily="sans-serif"
-        android:textColor="#000000"
-        android:textStyle="bold" />
-
-
-
-    <Button
-        android:id="@+id/btnStartDate"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="80dp"
-        android:layout_marginTop="360dp"
-        android:layout_marginStart="90dp"
-        android:padding="8dp"
-
-        android:text="START DATE"
-        android:backgroundTint="@color/white"
-        android:fontFamily="sans-serif"
-        android:textColor="#000000"
-        android:textStyle="bold" />
-
-
-
-    <Button
-        android:id="@+id/btnEndDate"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="80dp"
-        android:layout_marginTop="360dp"
-        android:layout_marginStart="200dp"
-        android:padding="8dp"
-
-        android:text="END DATE"
-        android:backgroundTint="@color/white"
-        android:fontFamily="sans-serif"
-        android:textColor="#000000"
-        android:textStyle="bold" />
-
 
 
 
@@ -177,11 +103,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="310dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="50dp"
         android:minHeight="48dp"
-
-        android:text="Set Daily Hours Worked"
-        android:textSize="12sp"
+        android:text="@string/set_daily_goals"
+        android:textSize="16sp"
         android:gravity="center"
         android:textStyle="bold"
         android:typeface="serif"
@@ -193,34 +118,81 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="310dp"
-        android:layout_marginStart="140dp"
+        android:layout_marginStart="170dp"
         android:minHeight="48dp"
-
-        android:hint="Min Hours" />
+        android:hint="@string/min_hours"
+        android:inputType="text"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/edTvDailyMax"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="310dp"
-        android:layout_marginStart="280dp"
+        android:layout_marginStart="270dp"
         android:minHeight="48dp"
+        android:hint="@string/max_hours"
+        android:inputType="text"
+        android:importantForAutofill="no" />
 
-        android:hint="Max. hours " />
 
+    <Button
+        android:id="@+id/btnStartDate"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="365dp"
+        android:backgroundTint="@color/white"
 
+        android:fontFamily="sans-serif"
+        android:padding="8dp"
+        android:text="@string/start_date2"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        tools:ignore="TextSizeCheck" />
 
+    <Button
+        android:id="@+id/btnEndDate"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginTop="365dp"
+        android:layout_marginStart="200dp"
+        android:padding="8dp"
+
+        android:text="@string/end_date2"
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif"
+        android:textColor="#000000"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnStartTime"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="80dp"
-        android:layout_marginTop="610dp"
         android:layout_marginStart="90dp"
+        android:layout_marginTop="415dp"
+        android:backgroundTint="@color/white"
+
+        android:fontFamily="sans-serif"
+        android:padding="8dp"
+        android:text="@string/start_time2"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        tools:ignore="TextSizeCheck" />
+
+    <Button
+        android:id="@+id/btnEndTime"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginTop="415dp"
+        android:layout_marginStart="200dp"
         android:padding="8dp"
 
-        android:text="START TIME"
+        android:text="@string/end_time2"
         android:backgroundTint="@color/white"
         android:fontFamily="sans-serif"
         android:textColor="#000000"
@@ -228,19 +200,115 @@
 
 
     <Button
-        android:id="@+id/btnCapture"
-        android:layout_width="100dp"
+        android:id="@+id/btnSaveEntry"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="80dp"
         android:layout_marginTop="660dp"
-        android:layout_marginStart="90dp"
+        android:layout_marginStart="80dp"
         android:padding="8dp"
 
-        android:text="START TIME"
+        android:text="@string/save_entry2"
         android:backgroundTint="@color/white"
         android:fontFamily="sans-serif"
         android:textColor="#000000"
         android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnViewEntries"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginStart="210dp"
+        android:layout_marginTop="660dp"
+        android:backgroundTint="@color/white"
+
+        android:fontFamily="sans-serif"
+        android:padding="8dp"
+        android:text="@string/view_entries"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        tools:ignore="TextSizeCheck" />
+
+
+    <ImageView
+        android:id="@+id/imageViewCam2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="490dp"
+        android:contentDescription="@string/todo"
+        app:srcCompat="@drawable/ic_launcher_background"
+        tools:ignore="ImageContrastCheck" />
+
+
+    <Button
+        android:id="@+id/btnCam2Choose"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="490dp"
+        android:backgroundTint="@color/white"
+
+        android:fontFamily="sans-serif"
+        android:padding="4dp"
+        android:text="@string/c2_choose_image"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        tools:ignore="TextSizeCheck" />
+
+
+    <Button
+        android:id="@+id/btnCam2TakePic"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginTop="540dp"
+        android:layout_marginStart="50dp"
+        android:padding="4dp"
+
+        android:text="@string/c2_take_pic"
+        android:backgroundTint="@color/white"
+        android:fontFamily="sans-serif"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnCam2UploadImage"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="590dp"
+        android:backgroundTint="@color/white"
+
+        android:fontFamily="sans-serif"
+        android:padding="4dp"
+        android:text="@string/c2_upload_image"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        tools:ignore="TextSizeCheck" />
+
+
+    <Button
+        android:id="@+id/btnNrmlCamera"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="600dp"
+        android:backgroundTint="@color/white"
+
+        android:fontFamily="sans-serif"
+        android:padding="4dp"
+        android:text="@string/c1_nrml_camera"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        tools:ignore="TextSizeCheck" />
+
+
+
 
 
 

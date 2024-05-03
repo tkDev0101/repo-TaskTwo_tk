@@ -129,6 +129,7 @@ class KameraTwo : AppCompatActivity() {
                 Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show() }
     }
 
+
     //METHOD -> Save Image To Firebase
     private fun saveImageToFirebase(imageBitmap: Bitmap) {
 

@@ -35,4 +35,23 @@
     <string name="user_populates_spinner">User Populates Spinner</string>
     <string name="user_enter_category_here">User Enter Category here</string>
     <string name="save_user_entry">SAVE USER ENTRY</string>
+    <string name="c2_choose_image">C2 - choose image</string>
+    <string name="c2_upload_image">C2 - Upload image</string>
+    <string name="c1_nrml_camera">C1 - NRML CAMERA</string>
+    <string name="c2_take_pic">C2 - Take Pic</string>
+    <string name="view_entries">VIEW ENTRIES</string>
+    <string name="save">Save</string>
+    <string name="enter_task_category">Enter Task Category</string>
+    <string name="task_description">Task Description</string>
+    <string name="new_timesheet_entry">New Timesheet Entry</string>
+    <string name="task_name">Task Name</string>
+    <string name="set_daily_goals">Set Daily Goals:</string>
+    <string name="min_hours">Min. Hours</string>
+    <string name="max_hours">Max. hours</string>
+    <string name="start_date2">START DATE</string>
+    <string name="end_date2">END DATE</string>
+    <string name="start_time2">START TIME</string>
+    <string name="end_time2">END TIME</string>
+    <string name="save_entry2">SAVE ENTRY</string>
+    <string name="todo">TODO</string>
 </resources>
