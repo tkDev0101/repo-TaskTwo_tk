@@ -33,8 +33,6 @@ import java.util.UUID
 
 class NewTaskEntry : AppCompatActivity() {
 
-
-
     //1. declare Variables
 
 //------------------New Task Entry VARIABLES --------------------------
@@ -138,6 +136,8 @@ class NewTaskEntry : AppCompatActivity() {
         spinner.adapter = adapter
 
 
+//----------------------BTN LISTENER EVENTS----------------------------
+
         // BTN Listener -> save user inout from edit text to spinner
         btnSaveUserSpinnerInput.setOnClickListener{
 
@@ -149,7 +149,6 @@ class NewTaskEntry : AppCompatActivity() {
                 edTvUserSpinnerInput.text.clear()
             }
         }
-
 
 
         //OnClickListener EVENTS ->  Call BTNS
